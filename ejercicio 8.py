@@ -32,7 +32,7 @@ def obtenerTextos(conexion, folders):
 
 def descargarArchivos(conexion, listaRemota, pathLocal):
     for file in listaRemota:
-        with open(f"{pathLocal}/{str(file).rsplit('/')[-1]}",'wb'):
+        with open(f"{pathLocal}/{str(file).rsplit('/')[-1]}",'wb') as f:
             conexion.retrbinary(f"RETR {file} ", f.write)
         f.close()
 
